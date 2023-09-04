@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<h3>The length of the string is:</h3>
+<p id="string1"></p>
+<h3>The sliced (extracted) part of the string is:</h3>
+<p id="string2"></p>
+<h3>The substring() method extract a part of a string and returns the extracted parts in a new string:</h3>
+<p id="string3"></p>
+<h3>The substr() method extract a part of a string and returns the extracted parts in a new string:</h3>
+<p id="string4"></p>    
+<h3>ES2021 intoduced the string method replaceAll().</h3>
+<p id="string5"></p>
+
+<h2>Number Function</h2>
+<h3>JavaScript will try to convert strings to numbers when dividing:</h3>
+<p id="num1"></p>
+<h3>A number divided by a non-numeric string becomes NaN (Not a Number):</h3>
+<p id="num2"></p>
+<h3>Division by zero generates Infinity;</h3>
+<p id="num3"></p>
+<h3>Numeric constants, preceded by 0x, are interpreted as hexadecimal:</h3>
+<p id="num4"></p>
+<h3>Numbers and Number objects cannot be safely compared:</h3>
+<p id="num5"></p>
+
+<h2>Array Function</h2>
+<h3>The length property returns the length of an array:</h3>
+<p id="array1"></p>
+<h3>The toString() method returns an array as a comma separated string:</h3>
+<p id="array2"></p>
+<h3>The pop() method removes the last element from an array.</h3>
+<p id="array.a"></p>
+<p id="array.b"></p>
+<h3>The push() method appends a new element to an array:</h3>
+<p id="demo.a"></p>
+<p id="demo.b"></p>
+<h3>The shift() method removes the first element of an array (and "shifts" the other elements to the left):</h3>
+<p id="array5"></p>
+<p id="array.5"></p>
+
+<h2>Date Function</h2>
+<h3>Create a new date object with the current date and time:</h3>
+<p id="date1"></p>
+<h3>Using new Date(7 numbers), creates a new date object with the specified date and time:</h3>
+<p id="date2"></p>
+<h3>Two digit years will be interpreted as 19xx:</h3>
+<p id="date3"></p>
+<h3>Convert a date to a string:</h3>
+<p id="date4"></p>
+<h3>86400000 milliseconds from January 01 1970 UTC is:</h3>
+<p id="date5"></p>
+
+<h2>Function Methods</h2>
+<h3>Call a function which performs a calculation and returns the result:</h3>
+<p id="f1"></p>
+<h3>Outside myFunction() carName is undefined.</h3>
+<p id="f2"></p>
+<p id="f3"></p>
+
+
+<script>
+
+//String Methods
+let text1 = "Created By: Siddharth Sharma";
+document.getElementById("string1").innerHTML = text1.length;
+let text2 = "Apple, Ball, Kiwi";
+let part = text2.slice(7,13);
+document.getElementById("string2").innerHTML = part; 
+let str1 = "Apple, Banana, Kiwi";
+document.getElementById("string3").innerHTML = str1.substring(7,13);
+let str2 = "Apple, Banana, Kiwi";
+document.getElementById("string4").innerHTML = str2.substr(7,6);
+let text3 = "I love cats. Cats are very easy to love. Cats are very popular."
+text3 = text3.replaceAll("Cats","Dogs");
+document.getElementById("string5").innerHTML = text3;
+
+//Number Methods
+let x = "100";
+let y = "10";
+let z = x / y;   
+document.getElementById("num1").innerHTML = z;
+
+document.getElementById("num2").innerHTML = 100 / "Apple";
+
+let a = 2/0;
+let b = -2/0;
+document.getElementById("num3").innerHTML = a + "<br>" + b;
+
+let g = 0xFF;
+document.getElementById("num4").innerHTML = "0xFF = " + g;
+
+
+let m = 500;
+let n = new Number(500);
+document.getElementById("num5").innerHTML = (m==n);
+
+//Arrays Methods
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let size = fruits.length;
+document.getElementById("array1").innerHTML = size;
+
+const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("array2").innerHTML = fruits2.toString();
+
+const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("array.a").innerHTML = fruits3;
+fruits3.pop();
+document.getElementById("array.b").innerHTML = fruits3;
+
+const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo.a").innerHTML = fruits4;
+fruits4.push("Kiwi");
+document.getElementById("demo.b").innerHTML = fruits4;
+
+const fruits5 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("array5").innerHTML = fruits5;
+fruits5.shift();
+document.getElementById("array.5").innerHTML = fruits5;
+
+//Dates Methods
+const d = new Date();
+document.getElementById("date1").innerHTML = d;
+
+const d1 = new Date(2018, 11, 24, 10, 33, 30, 0);
+document.getElementById("date2").innerHTML = d1;
+
+const d2 = new Date(99, 11, 24);
+document.getElementById("demo").innerHTML = d2;
+
+const d3 = new Date();
+document.getElementById("demo").innerHTML = d3.toString();
+
+const d4 = new Date(86400000);
+document.getElementById("demo").innerHTML = d4;
+
+//Function Methods
+let f = myFunction(4, 3);
+document.getElementById("f1").innerHTML = f;
+
+function myFunction(a, b) {
+  return a * b;
+}
+
+let text = "Outside: " + typeof carName;
+document.getElementById("f2").innerHTML = text;
+
+function myFunction() {
+  let carName = "Volvo";
+  let text = "Inside: " + typeof carName + " " + carName; 
+  document.getElementById("f3").innerHTML = text;
+}
+
+myFunction();
+
+
+
+
+</script>
+ <p>One day (24 hours) is 86,400,000 milliseconds.</p>
+</body>
+</html>
+
